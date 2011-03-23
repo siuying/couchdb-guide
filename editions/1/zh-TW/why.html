@@ -54,9 +54,9 @@ Apache CouchDB has started. Time to relax.
 
 <h3 id="better">更適合一般軟件</h3>
 
-<p>We write software to improve our lives and the lives of others. Usually this involves taking some mundane information—such as contacts, invoices, or receipts—and manipulating it using a computer application. CouchDB is a great fit for common applications like this because it embraces the natural idea of evolving, self-contained documents as the very core of its data model.
+<p>我們寫軟體為了改善自己和別人的生活。通常這包括收集一些普通的資料 -- 例如連絡人、收據、發票 -- 接著用電腦軟體去操作它們。CouchDB 十分適合這類一般的用途，因為它的資料模型擁抱著這種自然的想法：一些會演化，自給自足的文件。
 
-<h4 id="containment">Self-Contained Data</h4>
+<h4 id="containment">自給自足的資料</h4>
 
 <p>An invoice contains all the pertinent information about a single transaction—the seller, the buyer, the date, and a list of the items or services sold. As shown in <a href="#figure/1">Figure 1, “Self-contained documents”</a>, there’s no abstract reference on this piece of paper that points to some other piece of paper with the seller’s name and address. Accountants appreciate the simplicity of having everything in one place. And given the choice, programmers appreciate that, too.
 
@@ -64,7 +64,7 @@ Apache CouchDB has started. Time to relax.
 
 <img src="why/01.png">
 
-<p class="caption">Figure 1. Self-contained documents
+<p class="caption">圖 1. 自給自足的資料
 
 </div>
 
@@ -74,7 +74,7 @@ Apache CouchDB has started. Time to relax.
 
 <p>Let’s take a look at the humble contact database to illustrate a different way of modeling data, one that more closely “fits” its real-world counterpart—a pile of business cards. Much like our invoice example, a business card contains all the important information, right there on the cardstock. We call this “self-contained” data, and it’s an important concept in understanding document databases like CouchDB.
 
-<h4 id="information">Syntax and Semantics</h4>
+<h4 id="information">語法和語義</h4>
 
 <p>Most business cards contain roughly the same information—someone’s identity, an affiliation, and some contact information. While the exact form of this information can vary between business cards, the general information being conveyed remains the same, and we’re easily able to recognize it as a business card. In this sense, we can describe a business card as a <em>real-world document</em>.
 
@@ -98,7 +98,7 @@ Apache CouchDB has started. Time to relax.
 
 <img src="why/02.png">
 
-<p class="caption">Figure 2. Throughput, latency, or concurrency
+<p class="caption">圖 2. 輸出、延誤、並發性
 
 </div>
 
@@ -106,7 +106,7 @@ Apache CouchDB has started. Time to relax.
 
 <img src="why/03.png">
 
-<p class="caption">Figure 3. Scaling: read requests, write requests, or data
+<p class="caption">圖 3. 延申性：讀取要求、寫入要求、資料
 
 </div>
 
@@ -114,7 +114,7 @@ Apache CouchDB has started. Time to relax.
 
 <p>CouchDB is very flexible and gives you enough building blocks to create a system shaped to suit your exact problem. That’s not saying that CouchDB can be bent to solve any problem—CouchDB is no silver bullet—but in the area of data storage, it can get you a long way.
 
-<h4 id="replication">CouchDB Replication</h4>
+<h4 id="replication">CouchDB 複制</h4>
 
 <p>CouchDB replication is one of these building blocks. Its fundamental function is to synchronize two or more CouchDB databases. This may sound simple, but the simplicity is key to allowing replication to solve a number of problems: reliably synchronize databases between multiple machines for redundant data storage; distribute data to a cluster of CouchDB instances that share a subset of the total number of requests that hit the cluster (load balancing); and distribute data between physically distant locations, such as one office in New York and another in Tokyo.
 
@@ -124,21 +124,21 @@ Apache CouchDB has started. Time to relax.
 
 <ol>
 
-<li>The network is reliable.</li>
+<li>網路是可靠的</li>
 
-<li>Latency is zero.</li>
+<li>沒有延誤</li>
 
-<li>Bandwidth is infinite.</li>
+<li>無限頻寬</li>
 
-<li>The network is secure.</li>
+<li>網路是安全的</li>
 
-<li>Topology doesn’t change.</li>
+<li>網路架構不會改變</li>
 
-<li>There is one administrator.</li>
+<li>只有一個管理者</li>
 
-<li>Transport cost is zero.</li>
+<li>沒有傳輸費用</li>
 
-<li>The network is homogeneous.</li>
+<li>所有網路同質</li>
 
 </ol>
 
@@ -156,4 +156,4 @@ Apache CouchDB has started. Time to relax.
 
 <h3 id="wrap">總結</h3>
 
-<p>The next chapter further explores the distributed nature of CouchDB. We should have given you enough bites to whet your interest. Let’s go!
+<p>下一章我們將會探討 CouchDB 的分散特性。我們應該已經有足夠的餌讓你提起興趣了。起程吧！
