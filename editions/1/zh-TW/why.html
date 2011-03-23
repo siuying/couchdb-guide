@@ -25,36 +25,34 @@ Apache CouchDB has started. Time to relax.
 </pre>
 
 <p>為何放鬆這樣重要？開發者的生產力在近五年幾乎倍增。這增幅的主要原因是更強大更易用的工具。以 Ruby on Rails 為例，它是個無比複雜的框架，但它很容易上手。Rails 的成功正因為它以易用為主要的設計目標。這是其中一個原因為何 CouchDB 要放鬆：只要曾經做過一些網路的工作，學習 CouchDB 和理解它的主要概念應該相當自然。而對非技術人員來說它仍然相當容易解釋。
+
+<p>不會在創作人嘗試建立解決方案時擋路本身就是一個重要的功能，而這正是 CouchDB 想做對的地方。我們覺得現有的工具無論在開發時還是實用時也很累贅，因此我們決定把 CouchDB 做得易用，甚至易用得讓人愉快。在<a href="tour.html">第三章</a>和<a href="api.html">第四章</a>將會示範直觀的基於 HTTP 的 Rest API。
 	
-<p>Why is relaxation important? Developer productivity roughly doubled in the last five years. The chief reason for the boost is more powerful tools that are easier to use. Take Ruby on Rails as an example. It is an infinitely complex framework, but it’s easy to get started with. Rails is a success story because of the core design focus on ease of use. This is one reason why CouchDB is relaxing: learning CouchDB and understanding its core concepts should feel natural to most everybody who has been doing any work on the Web. And it is still pretty easy to explain to non-technical people.
+<p>另一個讓 CouchDB 用家放鬆的是它的生產環境設定。如果你有一個運行中的軟體，CouchDB 會站在一旁避免打擾你。它的內部架構是容錯的，錯誤會在受控的環境下優雅地被處理。獨立的問題不會影響整個系統，只會隔離在單一的請求中。
 
-<p>Getting out of the way when creative people try to build specialized solutions is in itself a core feature and one thing that CouchDB aims to get right. We found existing tools too cumbersome to work with during development or in production, and decided to focus on making CouchDB easy, even a pleasure, to use. Chapters <a href="tour.html">3</a> and <a href="api.html">4</a> will demonstrate the intuitive HTTP-based REST API.
+<p>CouchDB 的核心概念是簡單 (強大) 而且清楚明白。操作團隊 (如果有團隊；沒有團隊的話那便是你) 不用害怕突然發生的不能追蹤的錯誤。即使任何事情出錯，你可以輕易找出問題所在 -- 雖然這種情況很少。
 
-<p>Another area of relaxation for CouchDB users is the production setting. If you have a live running application, CouchDB again goes out of its way to avoid troubling you. Its internal architecture is fault-tolerant, and failures occur in a controlled environment and are dealt with gracefully. Single problems do not cascade through an entire server system but stay isolated in single requests.
+<p>CouchDB 設計成可以處理不定的流量。當一個網站面對暴增的流量時，CouchDB 可以接收大量同時的請求而不會倒下。處理每個請求的時間可能稍為增加，但他們都會被回應。當暴增的流量過去，CouchDB 又會回復到正常速度。 
 
-<p>CouchDB’s core concepts are simple (yet powerful) and well understood. Operations teams (if you have a team; otherwise, that’s you) do not have to fear random behavior and untraceable errors. If anything should go wrong, you can easily find out what the problem is—but these situations are rare.
+<p>第三個可以放鬆的地方是增加或減少你軟體底下的硬體。這通常被稱作<em>延展性</em>。CouchDB 對程式員作出一系列的限制。初看會覺得 CouchDB 很不靈活，但有些功能是設計上沒有加入的，因為如果 CouchDB 支援這些功這，它會讓程式員寫出不能應付延展性的軟體。我們會在「<a href="index.html#part/iv">第四章 配置 CouchDB </a>」探討 CouchDB 的延展性。
 
-<p>CouchDB is also designed to handle varying traffic gracefully. For instance, if a website is experiencing a sudden spike in traffic, CouchDB will generally absorb a lot of concurrent requests without falling over. It may take a little more time for each request, but they all get answered. When the spike is over, CouchDB will work with regular speed again.
+<p>簡言而之，CouchDB 不會讓你做些會讓你展些遇上麻煩的事。有時這會要你忘記你以前在工作學會的最佳實踐。在<a href="recipes.html">第二十四章 錦囊</a>裡有一系列日常工序和怎樣在 CouchDB 中解決它們。
 
-<p>The third area of relaxation is growing and shrinking the underlying hardware of your application. This is commonly referred to as <em>scaling</em>. CouchDB enforces a set of limits on the programmer. On first look, CouchDB might seem inflexible, but some features are left out by design for the simple reason that if CouchDB supported them, it would allow a programmer to create applications that couldn’t deal with scaling up or down. We’ll explore the whole matter of scaling CouchDB in <a href="index.html#part/iv">Part IV, “Deploying CouchDB”</a>.
+<h3 id="different">另一種建立數據模型的方法</h3>
 
-<p>In a nutshell: CouchDB doesn’t let you do things that would get you in trouble later on. This sometimes means you’ll have to unlearn best practices you might have picked up in your current or past work. <a href="recipes.html">Chapter 24, Recipes</a> contains a list of common tasks and how to solve them in CouchDB.
-
-<h3 id="different">A Different Way to Model Your Data</h3>
-
-<p>We believe that CouchDB will drastically change the way you build document-based applications. CouchDB combines an intuitive document storage model with a powerful query engine in a way that’s so simple you’ll probably be tempted to ask, “Why has no one built something like this before?”
+<p>我們相信 CouchDB 會大幅改變你建立以為件為中心的軟體的方法。CouchDB 簡單地結合直觀的文件儲存模型和強大的查詢引擎，你會不禁去問「為甚麼之前沒有人做類似的東西？」
 
 <blockquote>
 
-<p>Django may be built <em>for</em> the Web, but CouchDB is built <em>of</em> the Web. I’ve never seen software that so completely embraces the philosophies behind HTTP. CouchDB makes Django look old-school in the same way that Django makes ASP look outdated.
+<p>Django 也許是<em>為</em>網路而作的，但 CouchDB 則<em>成為</em>了網路。我從沒見過軟件這麼完全地涵蓋 HTTP 背後的哲學。 CouchDB 讓 Django 變得老派，就像 Django 讓 ASP 顯得過時一樣。
 
-<p class="attribution">&mdash;Jacob Kaplan-Moss, Django developer
+<p class="attribution">&mdash;Jacob Kaplan-Moss, Django 開發者
 
 </blockquote>
 
-<p>CouchDB’s design borrows heavily from web architecture and the concepts of resources, methods, and representations. It augments this with powerful ways to query, map, combine, and filter your data. Add fault tolerance, extreme scalability, and incremental replication, and CouchDB defines a sweet spot for document databases.
+<p>CouchDB 讓計借取了讓多網路的架構、資源的概念、方法和表現方式。在此之上它增加了強大的查詢、map、結合和過濾你的資料。加上容錯，強大的延申性，增量的複制，CouchDB 定義了文件資料庫的甜蜜點。
 
-<h3 id="better">A Better Fit for Common Applications</h3>
+<h3 id="better">更適合一般軟件</h3>
 
 <p>We write software to improve our lives and the lives of others. Usually this involves taking some mundane information—such as contacts, invoices, or receipts—and manipulating it using a computer application. CouchDB is a great fit for common applications like this because it embraces the natural idea of evolving, self-contained documents as the very core of its data model.
 
@@ -86,7 +84,7 @@ Apache CouchDB has started. Time to relax.
 
 <p>While a traditional relational database requires you to model your data <em>up front</em>, CouchDB’s schema-free design unburdens you with a powerful way to aggregate your data <em>after the fact</em>, just like we do with real-world documents. We’ll look in depth at how to design applications with this underlying storage paradigm.
 
-<h3 id="blocks">Building Blocks for Larger Systems</h3>
+<h3 id="blocks">更大系統的組件</h3>
 
 <p>CouchDB is a storage system useful on its own. You can build many applications with the tools CouchDB gives you. But CouchDB is designed with a bigger picture in mind. Its components can be used as building blocks that solve storage problems in slightly different ways for larger and more complex systems.
 
@@ -146,7 +144,7 @@ Apache CouchDB has started. Time to relax.
 
 <p>Existing tools often try to hide the fact that there is a network and that any or all of the previous conditions don’t exist for a particular system. This usually results in fatal error scenarios when something finally goes wrong. In contrast, CouchDB doesn’t try to hide the network; it just handles errors gracefully and lets you know when actions on your end are required.
 
-<h3 id="local">Local Data Is King</h3>
+<h3 id="local">本地的資料為王</h3>
 
 <p>CouchDB takes quite a few lessons learned from the Web, but there is one thing that could be improved about the Web: latency. Whenever you have to wait for an application to respond or a website to render, you almost always wait for a network connection that isn’t as fast as you want it at that point. Waiting a few seconds instead of milliseconds greatly affects user experience and thus user satisfaction.
 
@@ -156,6 +154,6 @@ Apache CouchDB has started. Time to relax.
 
 <p>Can you really use CouchDB on a phone? Erlang, CouchDB’s implementation language has been designed to run on embedded devices magnitudes smaller and less powerful than today’s phones.
 
-<h3 id="wrap">Wrapping Up</h3>
+<h3 id="wrap">總結</h3>
 
 <p>The next chapter further explores the distributed nature of CouchDB. We should have given you enough bites to whet your interest. Let’s go!
